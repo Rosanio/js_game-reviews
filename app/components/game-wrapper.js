@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  favoriteGames: Ember.inject.service(),
   averageScore: Ember.computed('reviews', 'game.reviews', function() {
     var sumScore = 0;
     var reviewsLength = 0;
@@ -14,6 +15,10 @@ export default Ember.Component.extend({
   actions: {
     newReview(params) {
       this.sendAction('newReview', params);
+    },
+    addFavorite(game) {
+      this.get('favoriteGames').addFavorite(game);
+      console.log(this.get('favoriteGames').get('favoriteGames'));
     }
   }
 });

@@ -2,6 +2,7 @@
 
 {{#if currentUser.currentUser}}
   <h3>Welcome {{currentUser.currentUser.username}}</h3>
+  {{#link-to 'user' currentUser.currentUser.id}}Home{{/link-to}}
 {{/if}}
 <br>
 <h3>Browse Games:</h3>

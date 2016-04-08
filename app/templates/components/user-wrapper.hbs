@@ -1,4 +1,6 @@
-<h4>Favorite Games:</h4>
-{{#each currentUser.currentUser.favoriteGames as |game|}}
-  {{game-tile game=game}}
-{{/each}}
+{{#if (eq user currentUser.currentUser)}}
+  <h4>Favorite Games:</h4>
+  {{#each favoriteGames.favoriteGames as |game|}}
+    {{game-tile game=game}}
+  {{/each}}
+{{/if}}

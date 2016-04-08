@@ -12,8 +12,6 @@ export function scoreStars(params) {
     return Ember.String.htmlSafe('&bigstar; &bigstar;');
   } else if(score >= 1) {
     return Ember.String.htmlSafe('&bigstar;');
-  } else {
-    return Ember.String.htmlSafe('');
   }
 }
 
