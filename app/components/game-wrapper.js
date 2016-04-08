@@ -2,11 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   favoriteGames: Ember.inject.service(),
+  currentUser: Ember.inject.service(),
+  favorited: false,
   averageScore: Ember.computed('reviews', 'game.reviews', function() {
     var sumScore = 0;
     var reviewsLength = 0;
     this.get('game').get('reviews').forEach(function(review) {
-      console.log(review.get('score'));
       sumScore += parseInt(review.get('score'));
       reviewsLength++;
     });
@@ -18,7 +19,7 @@ export default Ember.Component.extend({
     },
     addFavorite(game) {
       this.get('favoriteGames').addFavorite(game);
-      console.log(this.get('favoriteGames').get('favoriteGames'));
+      this.set('favorited', true);
     }
   }
 });

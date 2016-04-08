@@ -1,3 +1,7 @@
 .tileImg {
   max-width: 245px;
 }
+
+.floatRight {
+  float: right;
+}

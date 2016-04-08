@@ -1,6 +1,9 @@
 {{#if (eq user currentUser.currentUser)}}
   <h4>Favorite Games:</h4>
+  <ul class='list-group'>
   {{#each favoriteGames.favoriteGames as |game|}}
-    {{game-tile game=game}}
+    {{game-tile game=game class="list-group-item"}}
   {{/each}}
+</ul>
 {{/if}}
+{{#link-to 'index'}}Browse Games{{/link-to}}

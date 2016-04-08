@@ -1,6 +1,6 @@
 <h1>{{game.name}}</h1>
 
-<p>{{averageScore}}</p>
+<h5>Average Score: {{averageScore}}</h5>
 
 <h5>Genre: {{game.genre}}</h5>
 
@@ -8,11 +8,25 @@
 
 <h3>Description:</h3>
 <p>{{game.description}}</p>
+<hr>
 
-<button {{action 'addFavorite' game}} class="btn btn-primary">Add to Favorites</button>
-
+{{#if currentUser.currentUser}}
+  {{#if favorited}}
+    <h5>{{currentUser.currentUser.username}} loves {{game.name}} &lt;3</h5>
+  {{else}}
+    <button {{action 'addFavorite' game}} class="btn btn-primary">Add to Favorites</button>
+  {{/if}}
+{{/if}}
+<div class="row">
+  <div class="col-sm-8">    
+    {{#if currentUser.currentUser}}
+    {{new-review game=game newReview="newReview"}}
+    {{/if}}
+    <br>
+    {{#each game.reviews as |review|}}
+    {{review-tile review=review}}
+    <br>
+    {{/each}}
+  </div>
+</div>
 <h3>Reviews:</h3>
-{{new-review game=game newReview="newReview"}}
-{{#each game.reviews as |review|}}
-  {{review-tile review=review}}
-{{/each}}

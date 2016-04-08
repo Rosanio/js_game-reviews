@@ -5,7 +5,8 @@ export default Ember.Route.extend({
   model(params) {
     return Ember.RSVP.hash({
       currentUser: this.get('currentUser'),
-      user: this.store.findRecord('user', params.user_id)
+      user: this.store.findRecord('user', params.user_id),
+      reviews: this.store.findAll('review')
     });
   },
   actions: {
