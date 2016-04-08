@@ -15,6 +15,11 @@ export default Ember.Route.extend({
       newGame.save();
       console.log(this.currentModel.currentUser.currentUser.get('id'));
       this.transitionTo('user', this.currentModel.currentUser.currentUser.get('id'));
+    },
+    addAdmin(params) {
+      var newAdmin = this.store.createRecord('user', params);
+      newAdmin.save();
+      this.transitionTo('user', this.currentModel.currentUser.currentUser.get('id'));
     }
   }
 });
