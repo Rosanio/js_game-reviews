@@ -13,7 +13,7 @@ export default Ember.Route.extend({
       var newUser = this.store.createRecord('user', params);
       newUser.save();
       this.currentModel.currentUser.signInCurrentUser(newUser);
-      this.transitionTo('index');
+      this.transitionTo('user', newUser.get('id'));
     },
     signIn(params) {
       var foundUser = false;
@@ -23,7 +23,7 @@ export default Ember.Route.extend({
         if(params.username === user.get('username')) {
           if(params.password === user.get('password')) {
             route.currentModel.currentUser.signInCurrentUser(user);
-            route.transitionTo('index');
+            route.transitionTo('user', user.get('id'));
             foundUser = true;
           } else {
             alert('Incorrect Password');

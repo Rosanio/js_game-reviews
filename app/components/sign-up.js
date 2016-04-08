@@ -9,7 +9,8 @@ export default Ember.Component.extend({
     signUp() {
       var params = {
         username: this.get('newUsername'),
-        password: this.get('newPassword')
+        password: this.get('newPassword'),
+        permissions: 'user'
       };
       this.set('signingUp', false);
       this.sendAction('signUp', params);
