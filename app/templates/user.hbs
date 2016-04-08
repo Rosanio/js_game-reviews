@@ -1,5 +1,7 @@
 {{#if (eq model.currentUser.currentUser.permissions 'user')}}
   <h2>Welcome {{model.user.username}}!</h2>
+  {{user-wrapper}}
 {{else}}
   <h2>Welcome {{model.currentUser.currentUser.username}}</h2>
+  {{admin-wrapper addNewGame="addNewGame"}}
 {{/if}}

@@ -1,0 +1,34 @@
+{{#if 'showingNewGameForm'}}
+  <form>
+    <div class="form-group">
+      <label for="name">Title:</label>
+      {{input value=name id="name" class="form-control"}}
+    </div>
+    <div class="form-group">
+      <label for="name">Genre:</label>
+      {{#x-select value=genre id="genre" class="form-control"}}
+        {{#x-option value="Action/Adventure"}}Action/Adventure{{/x-option}}
+        {{#x-option value="Puzzle"}}Puzzle{{/x-option}}
+        {{#x-option value="Sports"}}Sports{{/x-option}}
+        {{#x-option value="Shooter"}}Shooter{{/x-option}}
+        {{#x-option value="Fignting"}}Fignting{{/x-option}}
+        {{#x-option value="Platformer"}}Platformer{{/x-option}}
+        {{#x-option value="Horror"}}Horror{{/x-option}}
+        {{#x-option value="RPG"}}RPG{{/x-option}}
+        {{#x-option value="Strategy"}}Strategy{{/x-option}}
+        {{#x-option value="Casual"}}Casual{{/x-option}}
+      {{/x-select}}
+    </div>
+    <div class="form-group">
+      <label for="image">Image URL:</label>
+      {{input value=image id="image" class="form-control"}}
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      {{textarea value=description id="description" class="form-control" rows=5}}
+    </div>
+    <button {{action 'addNewGame'}} class="btn btn-primary">Go!</button>
+  </form>
+{{else}}
+  <button {{action 'showNewGameForm'}} class="btn btn-primary">Add a New Game</button>
+{{/if}}
