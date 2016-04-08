@@ -1,5 +1,7 @@
 <h1>{{game.name}}</h1>
 
+<p>{{averageScore}}</p>
+
 <h5>Genre: {{game.genre}}</h5>
 
 <img src={{game.image}}>
@@ -10,5 +12,5 @@
 <h3>Reviews:</h3>
 {{new-review game=game newReview="newReview"}}
 {{#each game.reviews as |review|}}
-  {{review.review}}
+  {{review-tile review=review}}
 {{/each}}
