@@ -1,1 +1,24 @@
-{{yield}}
+{{#if showingReviewForm}}
+  <form>
+    <div class="form-group">
+      {{#x-select value=score}}
+        {{#x-option value="5"}}&bigstar; &bigstar; &bigstar; &bigstar; &bigstar;{{/x-option}}
+        {{#x-option value="4"}}&bigstar; &bigstar; &bigstar; &bigstar;{{/x-option}}
+        {{#x-option value="3"}}&bigstar; &bigstar; &bigstar;{{/x-option}}
+        {{#x-option value="2"}}&bigstar; &bigstar;{{/x-option}}
+        {{#x-option value="1"}}&bigstar;{{/x-option}}
+      {{/x-select}}
+    </div>
+    <div class="form-group">
+      <label for="review">Header:</label>
+      {{input value=review id="review" class="form-control"}}
+    </div>
+    <div class="form-group">
+      <label for="details">Details:</label>
+      {{textarea value=details id="details" class="form-control"}}
+    </div>
+    <button {{action 'newReview' game}} class="btn btn-primary">Go!</button>
+  </form>
+{{else}}
+  <button {{action 'showReviewForm'}} class="btn btn-primary">Review this Game</button>
+{{/if}}

@@ -1,1 +1,14 @@
-{{yield}}
+<h1>{{game.name}}</h1>
+
+<h5>Genre: {{game.genre}}</h5>
+
+<img src={{game.image}}>
+
+<h3>Description:</h3>
+<p>{{game.description}}</p>
+
+<h3>Reviews:</h3>
+{{new-review game=game newReview="newReview"}}
+{{#each game.reviews as |review|}}
+  {{review.review}}
+{{/each}}
