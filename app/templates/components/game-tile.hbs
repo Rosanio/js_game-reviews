@@ -1,1 +1,18 @@
-{{game.name}}
+<h4 {{action 'showDetails'}}>{{game.name}}</h4>
+{{#if showingDetails}}
+<div class="row">
+  <div class="col-sm-4">
+    <img src={{game.image}}>
+  </div>
+  <div class="col-sm-6">
+    <h5>Genre: {{game.genre}}</h5>
+    {{game.description}}
+
+  </div>
+  <div class="col-sm-2">
+    {{#if currentUser}}
+      {{#link-to 'game' game.id class="btn btn-primary"}}View Reviews{{/link-to}}
+    {{/if}}
+  </div>
+</div>
+{{/if}}

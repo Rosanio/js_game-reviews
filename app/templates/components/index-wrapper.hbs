@@ -3,3 +3,10 @@
 {{#if currentUser.currentUser}}
   <h3>Welcome {{currentUser.currentUser.username}}</h3>
 {{/if}}
+<br>
+<h3>Browse Games:</h3>
+<ul class="list-group">
+  {{#each games as |game|}}
+    {{game-tile class="list-group-item" game=game}}
+  {{/each}}
+</ul>

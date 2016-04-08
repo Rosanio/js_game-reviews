@@ -5,7 +5,8 @@ export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
       currentUser: this.get('currentUser'),
+      games: this.store.findAll('game')
     });
   },
-  
+
 });
