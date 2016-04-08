@@ -10,7 +10,8 @@ export default Ember.Route.extend({
   },
   actions: {
     newReview(params) {
-      if(this.currentModel.currentUser) {
+      console.log(params);
+      if(this.currentModel.currentUser.currentUser) {
         var newReview = this.store.createRecord('review', params);
         var game = params.game;
         game.get('reviews').addObject(newReview);

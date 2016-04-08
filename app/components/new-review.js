@@ -16,7 +16,7 @@ export default Ember.Component.extend({
         score: this.get('score'),
         date: date,
         orderDate: orderDate,
-        author: this.currentUser.currentUser,
+        author: this.get('currentUser').currentUser,
         game: game
       };
       this.set('showingReviewForm', false);
