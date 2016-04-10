@@ -8,6 +8,9 @@ export default Ember.Component.extend({
     },
     addAdmin(params) {
       this.sendAction('addAdmin', params);
+    },
+    deleteUser(user) {
+      this.sendAction('deleteUser', user);
     }
   }
 });

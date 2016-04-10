@@ -21,6 +21,10 @@ export default Ember.Route.extend({
       var newAdmin = this.store.createRecord('user', params);
       newAdmin.save();
       this.transitionTo('user', this.currentModel.currentUser.currentUser.get('id'));
+    },
+    deleteUser(user) {
+      user.destroyRecord();
+      this.transitionTo('user', this.currentModel.currentUser.currentUser.id);
     }
   }
 });

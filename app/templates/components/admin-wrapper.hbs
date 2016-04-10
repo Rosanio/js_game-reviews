@@ -9,7 +9,7 @@
   {{log currentUser}}
   {{#each users as |otherUser|}}
     {{#if (not-eq currentUser.currentUser otherUser)}}
-      {{user-tile class="list-group-item" user=otherUser}}
+      {{user-tile class="list-group-item" user=otherUser deleteUser="deleteUser"}}
     {{/if}}
   {{/each}}
 </ul>

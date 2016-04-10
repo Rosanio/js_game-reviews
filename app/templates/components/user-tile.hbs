@@ -1,6 +1,6 @@
-<h4>{{user.username}}</h4>
+<h4 {{action 'showDetails'}}>{{user.username}}</h4>
 
-{{#if 'showingDetails'}}
+{{#if showingDetails}}
   <div class="row">
     <div class="col-sm-6">
       <p>Reviews:</p>
@@ -11,8 +11,7 @@
       {{/each}}
     </div>
     <div class="col-sm-6">
-      {{edit-user user=user}}
-      <button {{action 'deleteUser'}} class='btn btn-danger'>Delete User</button>
+      <button {{action 'deleteUser' user}} class='btn btn-danger'>Delete User</button>
     </div>
   </div>
 {{/if}}
