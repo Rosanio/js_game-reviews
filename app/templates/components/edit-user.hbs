@@ -1,1 +1,14 @@
-{{yield}}
+{{#if showingEditForm}}
+  <form>
+    <div class="form-group">
+      <label for="password">Password</label>
+      {{input type="password" value=password class="form-control"}}
+    </div>
+    <button {{action 'changePassword' user}} class="btn btn-primary">Go!</button>
+  </form>
+{{else}}
+  {{#if passwordChanged}}
+    <p>Your password has been updated</p>
+  {{/if}}
+  <button {{action 'showEditForm'}} class="btn btn-primary">Change Password</button>
+{{/if}}

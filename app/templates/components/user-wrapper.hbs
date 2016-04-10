@@ -1,9 +1,27 @@
 {{#if (eq user currentUser.currentUser)}}
-  <h4>Favorite Games:</h4>
+  <h2>Welcome {{user.username}}</h2>
+  <h3>Favorite Games:</h3>
   <ul class='list-group'>
   {{#each favoriteGames.favoriteGames as |game|}}
     {{game-tile game=game class="list-group-item"}}
   {{/each}}
 </ul>
+{{else}}
+  <h2>{{user.username}}'s Page</h2>
+{{/if}}
+<h3>Reviews:</h3>
+{{#each user.reviews as |review|}}
+  <h4>{{review.game.name}}</h4>
+  <h5>{{review.review}}</h5>
+  <p>Score: {{score-stars review.score}}</p>
+  <p>{{review.details}}</p>
+  <br>
+{{/each}}
+{{#if (eq user currentUser.currentUser)}}
+  {{edit-user user=user changePassword="changePassword"}}
+{{/if}}
+{{#if (and (eq currentUser.currentUser.permissions "admin") (not-eq currentUser.currentUser user))}}
+  {{#link-to 'user' currentUser.currentUser.id}}Back{{/link-to}}
+  <br>
 {{/if}}
 {{#link-to 'index'}}Browse Games{{/link-to}}

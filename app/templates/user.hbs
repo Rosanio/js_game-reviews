@@ -1,7 +1,6 @@
-{{#if (eq model.currentUser.currentUser.permissions 'admin')}}
-  <h2>Welcome {{model.currentUser.currentUser.username}}</h2>
+{{#if (and (eq model.currentUser.currentUser.permissions 'admin') (eq model.user model.currentUser.currentUser))}}
+
   {{admin-wrapper user=model.user users=model.users addNewGame="addNewGame" addAdmin="addAdmin" deleteUser="deleteUser"}}
 {{else}}
-  <h2>Welcome {{model.user.username}}!</h2>
-  {{user-wrapper user=model.user}}
+  {{user-wrapper user=model.user changePassword="changePassword"}}
 {{/if}}

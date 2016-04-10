@@ -6,11 +6,12 @@
       <p>Reviews:</p>
       {{#each user.reviews as |review|}}
       <div>
-        {{review.review}}   {{review.score}}
+        {{review.review}}   {{score-stars review.score}}
       </div>
       {{/each}}
     </div>
     <div class="col-sm-6">
+      {{#link-to 'user' user.id}}View User Page{{/link-to}}
       <button {{action 'deleteUser' user}} class='btn btn-danger'>Delete User</button>
     </div>
   </div>

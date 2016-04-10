@@ -25,6 +25,14 @@ export default Ember.Route.extend({
     deleteUser(user) {
       user.destroyRecord();
       this.transitionTo('user', this.currentModel.currentUser.currentUser.id);
+    },
+    changePassword(user, params) {
+      console.log(user);
+      if(params['password'] !== undefined) {
+        user.set('password', params['password']);
+      }
+      user.save();
+      this.transitionTo('user', user.id);
     }
   }
 });
