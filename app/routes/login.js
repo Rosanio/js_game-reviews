@@ -19,7 +19,6 @@ export default Ember.Route.extend({
       var foundUser = false;
       var route = this;
       route.currentModel.allUsers.forEach(function(user) {
-        console.log(user);
         if(params.username === user.get('username')) {
           if(params.password === user.get('password')) {
             route.currentModel.currentUser.signInCurrentUser(user);

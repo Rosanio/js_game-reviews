@@ -1,0 +1,18 @@
+<h4>{{user.username}}</h4>
+
+{{#if 'showingDetails'}}
+  <div class="row">
+    <div class="col-sm-6">
+      <p>Reviews:</p>
+      {{#each user.reviews as |review|}}
+      <div>
+        {{review.review}}   {{review.score}}
+      </div>
+      {{/each}}
+    </div>
+    <div class="col-sm-6">
+      {{edit-user user=user}}
+      <button {{action 'deleteUser'}} class='btn btn-danger'>Delete User</button>
+    </div>
+  </div>
+{{/if}}

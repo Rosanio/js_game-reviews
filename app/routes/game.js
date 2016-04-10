@@ -15,9 +15,13 @@ export default Ember.Route.extend({
       if(this.currentModel.currentUser.currentUser) {
         var newReview = this.store.createRecord('review', params);
         var game = params.game;
+        var user = params.author;
         game.get('reviews').addObject(newReview);
+        user.get('reviews').addObject(newReview);
         newReview.save().then(function() {
           return game.save();
+        }).then(function() {
+          return user.save();
         });
       }
     }
