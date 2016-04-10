@@ -3,9 +3,9 @@
 {{#if showingDetails}}
   <div class="row">
     <div class="col-sm-6">
-      <p>Reviews:</p>
+      <p class="listGroupText">Reviews:</p>
       {{#each user.reviews as |review|}}
-      <div>
+      <div class="listGroupText">
         {{review.review}}   {{score-stars review.score}}
       </div>
       {{/each}}

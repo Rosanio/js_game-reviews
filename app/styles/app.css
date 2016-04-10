@@ -5,3 +5,47 @@
 .floatRight {
   float: right;
 }
+
+body {
+  background-color: #343F3E;
+}
+
+* {
+  color: #DCEDFF;
+}
+
+.list-group-item {
+  color: #343F3E;
+}
+
+.list-group-item h4:hover {
+  cursor: pointer;
+}
+
+a {
+  color: #94B0DA;
+}
+
+a:hover {
+  color: #697D9B;
+}
+
+.btn-primary {
+  background-color: #77B2D6;
+  border-color: #343F3E;
+  color: #343F3E;
+}
+
+.btn-primary:hover {
+  background-color: #395466;
+  border-color: #343F3E;
+  color: #DCEDFF;
+}
+
+.listGroupText {
+  color: #343F3E;
+}
+
+.navbar {
+  background-color: #DCEDFF;
+}
